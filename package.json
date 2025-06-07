@@ -1,0 +1,35 @@
+{
+  "name": "gadget-galaxy",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "concurrently \"yarn dev:frontend\" \"yarn dev:backend\"",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky",
+    "dev:frontend": "turbo dev --filter=frontend",
+    "dev:backend": "turbo dev --filter=backend",
+    "build:frontend": "turbo build --filter=frontend",
+    "build:backend": "turbo build --filter=backend",
+    "start:frontend": "cd apps/frontend && yarn start",
+    "start:backend": "cd apps/backend && yarn start"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@types/node": "^22.15.24",
+    "concurrently": "^9.1.2",
+    "husky": "^9.1.7",
+    "prettier": "^3.2.5",
+    "turbo": "^2.4.4",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
